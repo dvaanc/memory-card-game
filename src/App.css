@@ -1,0 +1,33 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+header, footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  background-color: #282c34;
+  color: #61DAFB;
+}
+
+.body {
+  background-color: #EEEEEE;
+  padding: 25px;
+  min-height: 800px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
+  height: 225px;
+  width: 160px;
+  background-color: #EEEEEE;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+}
+.card:hover {
+  cursor: pointer;
+}
+
+
+
