@@ -8,26 +8,40 @@ header, footer {
   background-color: #282c34;
   color: #61DAFB;
 }
-
 .body {
-  background-color: #EEEEEE;
-  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #464646;
+  padding: 50px;
   min-height: 800px;
+}
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 20px;
+  column-gap: 20px;
 }
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15px;
+  padding: 5px;
   border-radius: 10px;
-  height: 225px;
-  width: 160px;
-  background-color: #EEEEEE;
+  height: 180px;
+  width: 150px;
+  background-color: #272b33;
   box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+  transition: transform 0.3s ease 0s;
+  color: #61DAFB;
 }
-.card:hover {
-  cursor: pointer;
+.card:hover { cursor: pointer; }
+.imgContainer {
+  height: 60%;
+  width: 80%;
+  padding: 20px;
+  margin-bottom: 20px;
 }
-
+img { max-width: 100%; height: auto; }
 
 
