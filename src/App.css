@@ -47,7 +47,7 @@ header, footer {
   transition: transform 0.3s ease 0s;
   user-select: none;
 }
-.card:hover { cursor: pointer; }
+.card:hover { cursor: pointer; transform: scale(1.06) }
 .imgContainer {
   height: 60%;
   width: 80%;

@@ -7,6 +7,9 @@ function App() {
   const [cards, setCards] = React.useState(list);
   const [score, setScore] = React.useState(0);
   const [record, setRecord] = React.useState(0);
+  React.useEffect(() => {
+    shuffleCards(cards);
+  })
   function handleCardClicked(e) {
     e.preventDefault();
     let parent;
@@ -14,50 +17,44 @@ function App() {
     if(e.target.parentNode.classList.contains('card')) parent = e.target.parentNode;
     if(e.target.classList.contains('card')) parent = e.target;
     const id = parent.id;
-    const index = parent.dataset.index;
-    handleRound(id, index);
+    handleRound(id);
   }
-  function handleRound(id, index) {
+  function handleRound(id) {
     if(checkCardClicked(id)) {
       if(score > record) setRecord(score);
-      resetRound();
+      resetCards();
+      setScore(0);
       return;
     }
     if(!checkCardClicked(id)) {
-      setCardClicked(index)
+      setCardClicked(id)
       const newScore = score + 1;
       if(newScore > record) setRecord(newScore);
       setScore(newScore)
     }
   }
   function checkCardClicked(id) {
-    console.log(cards.some((item) => {
-      return item.clicked && item.name === id;
-    }))
     return cards.some((item) => {
       return item.clicked && item.name === id;
     });
   }
-  function setCardClicked(i) {
+  function setCardClicked(name) {
+    const index = cards.findIndex((cards) => cards.name === name)
+    console.log(index)
     setCards(
-      cards, 
-      cards[i].clicked = true,
+      cards,
+      cards[index].clicked = true,
     )
   }
   function shuffleCards() {
-    
-  }
-  function resetRound() {
-    resetCards();
-    resetScore();
+    for(let i = cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cards[i], cards[j]] = [cards[j], cards[i]]
+    }
   }
   function resetCards() {
     cards.forEach((card) => card.clicked = false);
     setCards(cards);
-    console.log(cards);
-  }
-  function resetScore() {
-    setScore(0);
   }
   return (
     <div className="App">
@@ -71,10 +68,11 @@ function App() {
       </div>
       <div className="cardContainer">
       {
-        cards.map((item, i) => {
+        
+        cards.map((item) => {
           const uuid = uuidv4();
         return (
-          <div className="card" key={uuid} id={item.name} data-index={i} onClick={handleCardClicked}>
+          <div className="card" key={uuid} id={item.name} onClick={handleCardClicked}>
             <div className="imgContainer">
               <img src={item.src} alt="angular" draggable="false"/>
             </div>
