@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/memory-card-game/static/css/main.5b2e0a2d.chunk.css",
+    "main.js": "/memory-card-game/static/js/main.02a29498.chunk.js",
+    "main.js.map": "/memory-card-game/static/js/main.02a29498.chunk.js.map",
+    "runtime-main.js": "/memory-card-game/static/js/runtime-main.57020724.js",
+    "runtime-main.js.map": "/memory-card-game/static/js/runtime-main.57020724.js.map",
+    "static/js/2.d23523c3.chunk.js": "/memory-card-game/static/js/2.d23523c3.chunk.js",
+    "static/js/2.d23523c3.chunk.js.map": "/memory-card-game/static/js/2.d23523c3.chunk.js.map",
+    "index.html": "/memory-card-game/index.html",
+    "static/css/main.5b2e0a2d.chunk.css.map": "/memory-card-game/static/css/main.5b2e0a2d.chunk.css.map",
+    "static/js/2.d23523c3.chunk.js.LICENSE.txt": "/memory-card-game/static/js/2.d23523c3.chunk.js.LICENSE.txt",
+    "static/media/angular.b6d2a9de.png": "/memory-card-game/static/media/angular.b6d2a9de.png",
+    "static/media/bootstrap.6703d1fd.jpg": "/memory-card-game/static/media/bootstrap.6703d1fd.jpg",
+    "static/media/cplusplus.c0a0d2fd.png": "/memory-card-game/static/media/cplusplus.c0a0d2fd.png",
+    "static/media/css.71e1a6c5.png": "/memory-card-game/static/media/css.71e1a6c5.png",
+    "static/media/electron.5f2a0656.png": "/memory-card-game/static/media/electron.5f2a0656.png",
+    "static/media/eslint.3f828371.png": "/memory-card-game/static/media/eslint.3f828371.png",
+    "static/media/html.1336fa4c.png": "/memory-card-game/static/media/html.1336fa4c.png",
+    "static/media/java.6c64373d.png": "/memory-card-game/static/media/java.6c64373d.png",
+    "static/media/javaScript.266bd9fb.png": "/memory-card-game/static/media/javaScript.266bd9fb.png",
+    "static/media/jest.809768de.png": "/memory-card-game/static/media/jest.809768de.png",
+    "static/media/nodeJS.1041f6a6.png": "/memory-card-game/static/media/nodeJS.1041f6a6.png",
+    "static/media/php.2eb2596e.svg": "/memory-card-game/static/media/php.2eb2596e.svg",
+    "static/media/reactJS.73ac128a.png": "/memory-card-game/static/media/reactJS.73ac128a.png",
+    "static/media/redux.1b4bb5fc.png": "/memory-card-game/static/media/redux.1b4bb5fc.png",
+    "static/media/ruby.97331365.png": "/memory-card-game/static/media/ruby.97331365.png",
+    "static/media/rubyOnRails.9c1e7835.png": "/memory-card-game/static/media/rubyOnRails.9c1e7835.png",
+    "static/media/typeScript.17936c69.png": "/memory-card-game/static/media/typeScript.17936c69.png",
+    "static/media/vscode.3721028f.png": "/memory-card-game/static/media/vscode.3721028f.png",
+    "static/media/vue.5fd4443c.png": "/memory-card-game/static/media/vue.5fd4443c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.57020724.js",
+    "static/js/2.d23523c3.chunk.js",
+    "static/css/main.5b2e0a2d.chunk.css",
+    "static/js/main.02a29498.chunk.js"
+  ]
+}
