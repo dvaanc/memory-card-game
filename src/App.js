@@ -1,5 +1,4 @@
 import React from 'react';
-import reactDom from 'react-dom';
 import list from './utility/list';
 import { v4 as uuidv4 } from 'uuid';
 import './App.css';
@@ -10,51 +9,56 @@ function App() {
   const [record, setRecord] = React.useState(0);
   function handleCardClicked(e) {
     e.preventDefault();
-    if(e.target.parentNode.parentNode.classList.contains('card')) {
-      const parent = e.target.parentNode.parentNode;
-      const id = parent.id;
-      if(checkCardClicked(id)) {
-
-      }
-    } 
-    if(e.target.parentNode.classList.contains('card')) {
-      const parent = e.target.parentNode;
-      const id = parent.id;
-      checkCardClicked(id)
-
+    let parent;
+    if(e.target.parentNode.parentNode.classList.contains('card')) parent = e.target.parentNode.parentNode;
+    if(e.target.parentNode.classList.contains('card')) parent = e.target.parentNode;
+    if(e.target.classList.contains('card')) parent = e.target;
+    const id = parent.id;
+    const index = parent.dataset.index;
+    handleRound(id, index);
+  }
+  function handleRound(id, index) {
+    if(checkCardClicked(id)) {
+      if(score > record) setRecord(score);
+      resetRound();
+      return;
     }
-    if(e.target.classList.contains('card')) {
-      const parent = e.target;
-      const id = parent.id;
-      checkCardClicked(id)
+    if(!checkCardClicked(id)) {
+      setCardClicked(index)
+      const newScore = score + 1;
+      if(newScore > record) setRecord(newScore);
+      setScore(newScore)
     }
   }
   function checkCardClicked(id) {
     console.log(cards.some((item) => {
       return item.clicked && item.name === id;
     }))
+    return cards.some((item) => {
+      return item.clicked && item.name === id;
+    });
   }
-  function setCardClicked(id) {
-    const card = cards.filter((item) => item.name === id)
-    console.log(card)
-    Promise.resolve()
-    .then(() => {
-      setCards({
-        ...cards, 
-        card
-      })
-    })
-    .then(() => {
-      console.log(cards)
-    })
-  }
-  function resetGame() {
-
+  function setCardClicked(i) {
+    setCards(
+      cards, 
+      cards[i].clicked = true,
+    )
   }
   function shuffleCards() {
     
   }
-
+  function resetRound() {
+    resetCards();
+    resetScore();
+  }
+  function resetCards() {
+    cards.forEach((card) => card.clicked = false);
+    setCards(cards);
+    console.log(cards);
+  }
+  function resetScore() {
+    setScore(0);
+  }
   return (
     <div className="App">
       <header className="header">
@@ -62,15 +66,15 @@ function App() {
       </header>
       <div className="body">
       <div className="score">
-        <p>Score:</p>
-        <p>Record:</p>
+        <p>Score: {score}</p>
+        <p>Record: {record}</p>
       </div>
       <div className="cardContainer">
       {
-        cards.map((item) => {
+        cards.map((item, i) => {
           const uuid = uuidv4();
         return (
-          <div className="card" key={uuid} id={item.name} onClick={handleCardClicked}>
+          <div className="card" key={uuid} id={item.name} data-index={i} onClick={handleCardClicked}>
             <div className="imgContainer">
               <img src={item.src} alt="angular" draggable="false"/>
             </div>
