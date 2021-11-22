@@ -68,7 +68,6 @@ function App() {
       </div>
       <div className="cardContainer">
       {
-        
         cards.map((item) => {
           const uuid = uuidv4();
         return (
