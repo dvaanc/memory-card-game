@@ -7,6 +7,7 @@ function App() {
   const [cards, setCards] = React.useState(list);
   const [score, setScore] = React.useState(0);
   const [record, setRecord] = React.useState(0);
+  
   React.useEffect(() => {
     shuffleCards(cards);
   })
@@ -24,7 +25,7 @@ function App() {
       if(score > record) setRecord(score);
       resetCards();
       setScore(0);
-      return;
+      return
     }
     if(!checkCardClicked(id)) {
       setCardClicked(id)
@@ -34,17 +35,16 @@ function App() {
     }
   }
   function checkCardClicked(id) {
+    console.log(cards.some((item) => {
+      return item.clicked && item.name === id;
+    }))
     return cards.some((item) => {
       return item.clicked && item.name === id;
     });
   }
   function setCardClicked(name) {
     const index = cards.findIndex((cards) => cards.name === name)
-    console.log(index)
-    setCards(
-      cards,
-      cards[index].clicked = true,
-    )
+    setCards(cards, cards[index].clicked = true )
   }
   function shuffleCards() {
     for(let i = cards.length - 1; i > 0; i--) {
